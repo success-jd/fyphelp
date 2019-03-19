@@ -1,0 +1,217 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+@base-font-size: 1em;
+@base-line-height: 1.5em;
+@leading: @base-font-size * @base-line-height;
+
+
+
+
+.base-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh * 3;
+    background: url("../typo.png") top repeat;
+}
+
+.b1 {
+    top: -@leading / 2;
+    opacity: 0.3;
+}
+
+
+.grid {
+    transition: all 1s ease-out;
+}
+
+//to remove checkbox
+.switch {
+    display: none;
+}
+
+//to style the label which the switch-trigger
+.switch-trigger {
+    position: fixed;
+    top: @leading;
+    right: @leading;
+    background-color: black;
+    color: white;
+    padding: 0.667em;
+    cursor: pointer;
+    z-index: 20000;
+}
+
+.switch:checked ~ .grid {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.switch:checked ~ #guides {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.switch:checked ~ .switch-trigger {
+    opacity: 0.2;
+}
+
+
+#guides {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    transition: all 1s ease-out;
+}
+
+
+@gridColumnWidth: 100% / 18;
+
+
+// for each column
+.guide {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    border-width: 0 0.75em;//using this instead of width, 0.75 will before left and right
+    border-color: #e22845;
+    border-style: solid;
+    margin-left: -0.75em;
+    
+
+
+    //to simulate the space in between
+    div {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 2px;
+        background-color:  white;
+
+    }
+}
+.g0 {
+    left: 0;
+
+    div{
+        left: auto;
+        right: 0.75em;
+    }
+}
+.g1 {
+    left: @gridColumnWidth * 2;
+}
+
+.g2 {
+    left: @gridColumnWidth * 3;
+}
+
+.g3 {
+    left: @gridColumnWidth * 4;
+}
+
+.g4 {
+    left: @gridColumnWidth * 5;
+}
+
+.g5 {
+    left: @gridColumnWidth * 6;
+}
+
+.g6 {
+    left: @gridColumnWidth * 7;
+}
+
+.g7 {
+    left: @gridColumnWidth * 8;
+}
+
+.g8 {
+    left: @gridColumnWidth * 9;
+}
+
+.g9 {
+    left: @gridColumnWidth * 10;
+}
+
+.g10 {
+    left: @gridColumnWidth * 11;
+}
+
+.g11 {
+    left: @gridColumnWidth * 12;
+}
+
+.g12 {
+    left: @gridColumnWidth * 13;
+}
+
+.g13 {
+    left: @gridColumnWidth * 14;
+}
+
+.g14 {
+    left: @gridColumnWidth * 15;
+}
+
+.g15 {
+    left: @gridColumnWidth * 16;
+}
+
+.g16 {
+    right: 0;
+    
+    div{
+        left: 0.75em;
+    }
+}
+
+.g0, .g16 {
+    margin: 0;
+    border: 0;
+    padding-right: 0.75em;
+    background-color: #e22845;
+    width: @gridColumnWidth;
+}
+
+
+//media queries
+
+@media screen and (max-width: 780px) {
+    .g1,
+    .g2,
+    .g3,
+    .g5,
+    .g6,
+    .g7,
+    .g9,
+    .g10,
+    .g11,
+    .g13,
+    .g14,
+    .g15 {
+        opacity: 0;
+    }
+}
+
+@media screen and (max-width: 1366px) {
+    .g1,
+    .g3,
+    .g5,
+    .g7,
+    .g9,
+    .g11,
+    .g13,
+    .g15 {
+        opacity: 0;
+    }
+}
+
+
